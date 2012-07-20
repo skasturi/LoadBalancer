@@ -50,7 +50,8 @@ public class LoadBalanceServer {
 				Thread t = new Thread(w);
 				t.start();
 			} catch (IOException e) {
-				System.out.println("Accept failed: " + PropertyKeys.SERVER_PORT);
+				System.out
+						.println("Accept failed: " + PropertyKeys.SERVER_PORT);
 				System.exit(-1);
 			}
 		}
@@ -88,7 +89,7 @@ public class LoadBalanceServer {
 				line = in.readLine();
 				if (line.compareTo("next") == 0) {
 					final int next = LoadBalanceServer.next.getAndIncrement();
-					System.out.println(client.getInetAddress() + " working on "	+ next);
+					System.out.println(client.getInetAddress() + " working on " + next);
 					out.println(Integer.toString(next));
 				}
 				in.close();
@@ -99,10 +100,10 @@ public class LoadBalanceServer {
 			}
 		}
 	}
-	
-	 public static void main(String[] args) {
-         LoadBalanceServer server = new LoadBalanceServer();
-         server.listenSocket();
- }
+
+	public static void main(String[] args) {
+		LoadBalanceServer server = new LoadBalanceServer();
+		server.listenSocket();
+	}
 
 }
